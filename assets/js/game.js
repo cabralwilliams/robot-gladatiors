@@ -8,7 +8,14 @@ var playerMoney= 10
 var enemyName = ["Roborto", "Amy Android", "Robo Trumble"];
 var enemyHealth = 50;
 var enemyAttack = 12;
-var fight = function(enemyName){}
+var fight = function(enemyName){} //*
+/*
+There is an issue at line 11.  Since you have closed the curly braces right away here, your fight function is not actually doing anything.
+I think that what you are likely supposed to do is move the while loop that is below this at line 20 to inside of your fight function curly braces.
+Then, move everything from the if statement at line 30 -> if (promptFight === "fight" || promptFight === "FIGHT") all the way to the end of that block (line 72)
+to inside of the while loop that is currently at line 20, or you can move the if clause first.  This would then have the fight function running the fight code and give
+the break statement a loop to break from.  I think this might solve the issue.
+*/
    // repeat and execute as long as the enemy-robot is alive
    while(enemyHealth >0) {
     var promptFight = window.prompt ("Would you like to FIGHT or SKIP this battle? Enter 'FIGHT' or 'SKIP'to choose");
